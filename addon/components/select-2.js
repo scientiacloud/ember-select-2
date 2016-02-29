@@ -523,6 +523,10 @@ var Select2Component = Ember.Component.extend({
       value = data;
     }
 
+    if (Ember.isEmpty(value)) {
+      value = null;
+    }
+
     this.set("value", value);
     Ember.run.schedule('actions', this, function() {
       this.sendAction('didSelect', value, this);
